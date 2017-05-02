@@ -11,9 +11,9 @@ const babel = require('gulp-babel');
 /* Browser Sync and gulp.watch() */
 gulp.task('default', ['sass', 'babel'], () => {
     browserSync.init({                                      
-        server: {
-            baseDir: "./"
-        }
+            //baseDir: "./",
+        proxy: "localhost:8888/simple-cms"
+        
     });
     gulp.watch("./*.html").on('change', browserSync.reload);    
 
