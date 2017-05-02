@@ -1,4 +1,4 @@
 node_modules
 npm-debug.log
 .DS_Store
-app/css/main.min.css
+app/css
