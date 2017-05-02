@@ -17,8 +17,8 @@
         If(isset($_POST['submit'])){
             try {
            
-            $stmt = $pdo->prepare("INSERT INTO posts (title, content)
-            VALUES (:postTitle, :postContent)");
+            $stmt = $pdo->prepare("INSERT INTO posts (title, content, date)
+            VALUES (:postTitle, :postContent, now())");
             $stmt->bindParam(':postTitle', $postTitle);
             $stmt->bindParam(':postContent', $postContent);
 
