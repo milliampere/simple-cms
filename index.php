@@ -1,9 +1,14 @@
 <?php 
 
 include 'app/includes/header.php';
+include 'app/error.php';
 
 
-echo 'Heeeeej';
+include 'app/database.php';
+include 'app/classes/User.php';
+		$user = new User;
+		var_dump($user->getName($pdo));
+
 
 
 
