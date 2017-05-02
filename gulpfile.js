@@ -15,7 +15,7 @@ gulp.task('default', ['sass', 'babel'], () => {
         proxy: "localhost:8888/simple-cms"
         
     });
-    gulp.watch("./*.html").on('change', browserSync.reload);    
+    gulp.watch("./*.php").on('change', browserSync.reload);    
 
     gulp.watch('./src/scss/**/*.scss', ['sass']);               
     gulp.watch('./src/js/*.js', ['babel']);                     
