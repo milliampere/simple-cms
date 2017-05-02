@@ -3,6 +3,7 @@
 include 'app/includes/header.php';
 include 'app/error.php';
 
+include 'app/includes/navigation.php';
 
 include 'app/database.php';
 include 'app/classes/User.php';
