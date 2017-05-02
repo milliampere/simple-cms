@@ -2,7 +2,9 @@
 
 class Post 
 {
-
+    public function createPost($pdo){
+        
+    }
 
 
 }
