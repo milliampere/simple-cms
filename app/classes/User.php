@@ -5,10 +5,12 @@ class User
 
     public function getName($pdo){
         echo 'Name: ';
-        $statement = $this->pdo->prepare("
-		SELECT * FROM users");
+        $statement = $pdo->prepare("SELECT * FROM users");
 		$statement->execute();
-		return $statement->fetchAll();
+		$data = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach($data as $row){
+            echo "<li>" . $row["name"] . "</li>";
+        }
     }
 
 }
