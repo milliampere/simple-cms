@@ -27,15 +27,15 @@ $options = [
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         
-        echo '<ul>';
+        echo '<div class="posts">';
         
             foreach ($data as $key) {
                 $title = $key['title'];
                 $content = $key['content'];
-            echo "<li> titel: $title  innehåll: $content </li>";
-
+                echo "<h2> $title </h2>";
+                echo "<p> $content </p>";
         }
-        echo '</ul>';
+        echo '</div>';
     }
 catch(PDOException $e)
     {
