@@ -1,5 +1,5 @@
 <?php
-
+echo "cpl";
 // class Post 
 // {
     // public function createPost($pdo){
