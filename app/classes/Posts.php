@@ -32,8 +32,10 @@ $options = [
             foreach ($data as $key) {
                 $title = $key['title'];
                 $content = $key['content'];
+                $date = $key["date"];
                 echo "<h2> $title </h2>";
                 echo "<p> $content </p>";
+                echo "<span> $date</span>";
         }
         echo '</div>';
     }
