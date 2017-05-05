@@ -36,6 +36,7 @@ $options = [
                 echo "<h2> $title </h2>";
                 echo "<p> $content </p>";
                 echo "<span> $date</span>";
+                echo '<button class="likePost">Like</button>';
         }
         echo '</div>';
     }
