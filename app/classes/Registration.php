@@ -15,10 +15,19 @@ $pdo = new PDO(
 
 
 if(isset($_POST['register_btn'])) {
+    session_start();
     $username = mysql_real_escape_string($_POST['username']);
     $email = mysql_real_escape_string($_POST['email']);
     $password = mysql_real_escape_string($_POST['password']);
     $password2 = mysql_real_escape_string($_POST['password2']);
+
+    if ($password == $password2) {
+        $password = md5($password); //hash password
+        $sql = "INSERT INTO users(username, email, password) VALUES('$username', '$email', '$password')"
+        
+    }
+
+    
 }
 
     ?>
