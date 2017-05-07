@@ -4,29 +4,37 @@
 		include 'database.php';
 ?>
 
+<?php 
+  if($_SESSION['loggedIn'] && $_SESSION['isAdmin']){
+    include 'includes/adminbar.php';
+  }
+  else if($_SESSION['loggedIn']) {
+    //include 'userBar.php';
+  } else {
+    echo "Wrong";
+  }
+?>
+
 <div class="container-fluid">
   <div class="row">
-      <?php 
-        if($_SESSION['loggedIn'] && $_SESSION['isAdmin']){
-          //echo "<h1>You are logged in, " . $_SESSION['name'] . "</h1>";
-          include 'includes/adminbar.php';
-        }
-        else if($_SESSION['loggedIn']) {
-          //echo "<h1>You are logged in, " . $_SESSION['name'] . "</h1>";
-          //include 'userBar.php';
-        } else {
-          echo "Wrong";
-        }
+    <main class="col pt-3">
+      <h3><?php echo "Hej " . $_SESSION['name'] ?> </h3>
+
+      <?php
+      include 'classes/User.php';
+      $user = new User;
+      $id = $_SESSION['id'];
+      echo "<br>";
+      echo "Namn: " . $user->getName($pdo, $id);
+      echo "<br>";
+      echo "Du har skrivit " . $user->numberOfPosts($pdo, $id) . " inlägg.";
+
       ?>
 
 
-    <main class="col pt-3">
-      <h1><?php echo "Hej " . $_SESSION['name'] ?> </h1>
     </main>
-
-
-  </div> <!--End of row-->
-</div> <!-- End of container -->
+  </div> <!--end of row-->
+</div> <!-- end of container -->
 
 
 <?php 
