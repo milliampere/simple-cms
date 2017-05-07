@@ -34,7 +34,7 @@ else {
 	//echo "Wrong password";
 }
 
-header("Location: userPage.php");
+header("Location: userpage.php");
 
 // Login, verify password 
 /*function verify($pass){

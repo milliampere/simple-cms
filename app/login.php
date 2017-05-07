@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-            <form class="form-horizontal" action="loginCheck.php" method="POST">
+            <form class="form-horizontal" action="logincheck.php" method="POST">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email">Email:</label>
                 <div class="col-sm-10">

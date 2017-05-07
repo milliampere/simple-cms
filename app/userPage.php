@@ -9,7 +9,7 @@
       <?php 
         if($_SESSION['loggedIn'] && $_SESSION['isAdmin']){
           //echo "<h1>You are logged in, " . $_SESSION['name'] . "</h1>";
-          include 'includes/adminBar.php';
+          include 'includes/adminbar.php';
         }
         else if($_SESSION['loggedIn']) {
           //echo "<h1>You are logged in, " . $_SESSION['name'] . "</h1>";
