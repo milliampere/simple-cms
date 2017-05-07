@@ -1,5 +1,4 @@
 <?php
-echo "cpl";
 // class Post 
 // {
     // public function createPost($pdo){
@@ -30,7 +29,7 @@ echo "cpl";
         }catch(PDOException $e){
         echo "Error: " . $e->getMessage();
         }
-        $conn = null;
+        $pdo = null;
         }
         
     // }
