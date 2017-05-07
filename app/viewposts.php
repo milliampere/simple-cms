@@ -7,7 +7,7 @@
 <body>
     <h1> view all posts</h1>
     <?php
-    include '../classes/Posts.php';
+    include 'classes/Posts.php';
 
     ?> 
 </body>

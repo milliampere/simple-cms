@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>skapa post</h1>
-    <form action="../classes/post.php" method="post">
+    <form action="classes/post.php" method="post">
         <label>Title</label>
         <input type="text" name="postTitle" required="required" placeholder="Title"/><br /><br />
         <label>Content :</label>
