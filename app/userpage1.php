@@ -29,8 +29,6 @@
 </div> <!-- End of container -->
 
 
-
-
 <?php 
     include 'includes/footer.php';
 ?>
