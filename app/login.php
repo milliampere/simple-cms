@@ -1,7 +1,14 @@
 <?php 
     session_start();
+    
+    //Check if already logged in, move to home page
+/*    if (isset($_SESSION['loggedIn'])) { 
+        header('Location: index.php'); 
+    } */
+?>
 
-    include 'includes/header.php';
+<?php 
+    include 'includes/header.php'; 
 ?>
 
 <div class="container-fluid">
@@ -31,8 +38,6 @@
         <div class="col-4"></div>
     </div>
 </div>
-
-
 
 
 <?php

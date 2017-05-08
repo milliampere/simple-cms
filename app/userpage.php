@@ -1,19 +1,13 @@
 <?php 
-		session_start();
-    include 'includes/header.php';
+	session_start(); 
+  include 'includes/header.php';
+
+  include 'classes/Database.php';
+  include 'classes/User.php';
 ?>
 
 <?php 
-  function logincheck(){
-  if($_SESSION['loggedIn'] && $_SESSION['isAdmin']){
-    include 'includes/adminbar.php';
-  }
-  else if($_SESSION['loggedIn']) {
-    //include 'userBar.php';
-  } else {
-    echo "Wrong";
-  }
-}
+  User::logincheck();
 ?>
 
 <div class="container-fluid">
@@ -22,8 +16,7 @@
       <h3><?php echo "Hej " . $_SESSION['name'] ?> </h3>
 
       <?php
-      include 'classes/Database.php';
-      include 'classes/User.php';
+
 
       $pdo = Database::connection();
       $user = new User($pdo);

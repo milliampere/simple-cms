@@ -1,6 +1,10 @@
 <?php 
 session_start();
-include 'database.php';
+include 'classes/Database.php';
+include 'classes/User.php';
+
+$pdo = Database::connection();
+$user = new User($pdo);
 
 // Input from the user
 $email = $_POST['email'];
@@ -16,29 +20,11 @@ if(!$row = $data){
 	//echo "Fel email";
 }
 
-// Check if the user is admin
-if($data['isAdmin'] == 1){
-	$isAdmin = true;
-} else {
-	$isAdmin = false;
-}
 
-// Verify password, set session variables
-function verify($password){
-	$hash = $data['password'];
-	if(password_verify($password, $hash)){
-		$_SESSION['loggedIn'] = true;
-		$_SESSION['email'] = $email;
-		$_SESSION['name'] = $data['name'];
-		$_SESSION['id'] = $data['id'];
-		$_SESSION['isAdmin'] = $isAdmin;
-	}
-	else {
-		//echo "Wrong password";
-	}
-}
-
-verify($password);
+$id = $data['id'];
+$hash = $data['password'];
+$isAdmin = $user->isAdmin($data['isAdmin']);
+$user->verify($password, $hash, $email, $id, $isAdmin);
 
 header("Location: userpage.php");
 
