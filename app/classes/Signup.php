@@ -32,7 +32,8 @@ class Signup
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':hash', $hash);
         $stmt->execute();
-        
+        echo "User created :)";
+        // Here we have to redirect
       }
 
     }
