@@ -12,7 +12,7 @@
             <table>
             <tr>
                 <td>Username:</td>
-                <td><input type="text" name="username" class="textInput"></td>
+                <td><input type="text" name="name" class="textInput"></td>
                 </tr> 
                  <tr>
                 <td>Email:</td>
@@ -23,11 +23,11 @@
                 <td><input type="password" name="password" class="textInput"></td>
                 </tr> 
                  <tr>
-                <td>Password again:</td>
+                <td>Confirm Password:</td>
                 <td><input type="password" name="password2" class="textInput"></td>
                 </tr>
                 <td></td>
-                <td><input type="submit" name="register_btn" value="Register"></td>
+                <td><input type="submit" name="register_button" value="Register"></td>
                 </tr>     
             </table>
         </form>
