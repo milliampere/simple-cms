@@ -1,12 +1,5 @@
+<h1 class="text-center">All posts</h1>
 <?php
-// class Posts 
-// {
-//     public function getPosts($pdo){
-        
-//     }
-
-
-// }
 
 //******TODO
 //fixa med classer, formatera html så posterna ser bra ut, koppla tables så man får ut user som skrivit inlägget
@@ -27,16 +20,19 @@ $options = [
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         
-        echo '<div class="posts">';
+        echo '<div class="posts container">';
         
             foreach ($data as $key) {
                 $title = $key['title'];
                 $content = $key['content'];
                 $date = $key["date"];
+                echo '<div class="col-md-12">';
                 echo "<h2> $title </h2>";
-                echo "<p> $content </p>";
-                echo "<span> $date</span>";
-                echo '<button class="likePost">Like</button>';
+                echo "<p> $content </p>"; 
+                echo '<span class="label label-primary">'.$date.'</span><br>';
+                echo '<button class="likePost btn btn-primary btn-xs">Like</button>';
+                echo '</div>';
+                echo '<hr>';
         }
         echo '</div>';
     }
@@ -44,4 +40,3 @@ catch(PDOException $e)
     {
     echo "Connection failed: " . $e->getMessage();
     }
-
