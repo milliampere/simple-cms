@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    <h1>skapa post</h1>
-    <form action="classes/post.php" method="post">
-        <label>Title</label>
-        <input type="text" name="postTitle" required="required" placeholder="Title"/><br /><br />
-        <label>Content :</label>
-        <input type="textarea" name="postContent" required="required" placeholder="content"/><br/><br />
-        <input type="submit" value=" Submit " name="submit"/><br />
+<?php
+include 'includes/header.php';
+?>
+    <h1 class="text-center">Create post</h1>
+    <form action="classes/post.php" method="post" class="createBlogpost"><br>
+        <label>Title</label><br>
+        <input type="text" name="postTitle" required="required"/><br><br>
+        <label>Content</label>
+        <textarea name="postContent" rows="10" class="form-control" required="required"></textarea><br>
+        <input class="btn btn-primary" type="submit" value="Submit " name="submit"/>
     </form>
-    <?php
-
-    ?>
-</body>
-</html>
