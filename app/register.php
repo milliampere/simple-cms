@@ -12,7 +12,7 @@
             <table>
             <tr>
                 <td>Username:</td>
-                <td><input type="text" name="username" class="textInput"></td>
+                <td><input type="text" name="name" class="textInput"></td>
                 </tr> 
                  <tr>
                 <td>Email:</td>
