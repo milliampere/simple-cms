@@ -1,10 +1,10 @@
 <?php 
 		session_start();
     include 'includes/header.php';
-		include 'database.php';
 ?>
 
 <?php 
+  function logincheck(){
   if($_SESSION['loggedIn'] && $_SESSION['isAdmin']){
     include 'includes/adminbar.php';
   }
@@ -13,6 +13,7 @@
   } else {
     echo "Wrong";
   }
+}
 ?>
 
 <div class="container-fluid">
@@ -21,13 +22,17 @@
       <h3><?php echo "Hej " . $_SESSION['name'] ?> </h3>
 
       <?php
+      include 'classes/Database.php';
       include 'classes/User.php';
-      $user = new User;
+
+      $pdo = Database::connection();
+      $user = new User($pdo);
+
       $id = $_SESSION['id'];
       echo "<br>";
-      echo "Namn: " . $user->getName($pdo, $id);
+      echo "Namn: " . $user->getName($id);
       echo "<br>";
-      echo "Du har skrivit " . $user->numberOfPosts($pdo, $id) . " inlägg.";
+      echo "Du har skrivit " . $user->numberOfPosts($id) . " inlägg.";
 
       ?>
 
