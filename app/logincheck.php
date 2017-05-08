@@ -1,14 +1,17 @@
 <?php 
-session_start();
+include 'classes/Login.php';
+include 'error.php';
+$login = new Login();
+
+// Input from the user
+$email = $_POST['email'];
+$password = $_POST['password'];
+
 include 'classes/Database.php';
 include 'classes/User.php';
 
 $pdo = Database::connection();
 $user = new User($pdo);
-
-// Input from the user
-$email = $_POST['email'];
-$password = $_POST['password'];
 
 // Get user from database
 $stmt = $pdo->prepare("SELECT * FROM users WHERE email='$email'");
@@ -17,15 +20,17 @@ $data = $stmt->fetch();
 
 // If the email doesn't exist
 if(!$row = $data){
-	//echo "Fel email";
+	echo "Fel email";
+}
+else {
+	$id = $data['id'];
+	$hash = $data['password'];
+	$isAdmin = $data['isAdmin'];
+	$login->verify($password, $hash, $email, $id, $isAdmin);
+
+	header("Location: userpage.php");
+
 }
 
-
-$id = $data['id'];
-$hash = $data['password'];
-$isAdmin = $user->isAdmin($data['isAdmin']);
-$user->verify($password, $hash, $email, $id, $isAdmin);
-
-header("Location: userpage.php");
 
 ?>

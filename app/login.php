@@ -1,11 +1,9 @@
-<?php 
-    session_start();
-    
-    //Check if already logged in, move to home page
-/*    if (isset($_SESSION['loggedIn'])) { 
-        header('Location: index.php'); 
-    } */
+<?php
+    include 'classes/Login.php';
+    $login = new Login();
+    Login::logincheck();
 ?>
+
 
 <?php 
     include 'includes/header.php'; 

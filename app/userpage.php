@@ -1,23 +1,29 @@
+<?php
+    include 'classes/Login.php';
+    $login = new Login();
+    Login::logincheck();
+
+    if (!isset($_SESSION['loggedIn'])) { 
+        header('Location: notloggedin.php'); 
+    }
+
+?>
+
 <?php 
-	session_start(); 
   include 'includes/header.php';
-
-  include 'classes/Database.php';
-  include 'classes/User.php';
+  
 ?>
 
-<?php 
-  User::logincheck();
-?>
 
 <div class="container-fluid">
   <div class="row">
     <main class="col pt-3">
-      <h3><?php echo "Hej " . $_SESSION['name'] ?> </h3>
+      <h3><?php echo "Hej!" ?> </h3>
 
       <?php
 
-
+      include 'classes/Database.php';
+      include 'classes/User.php';
       $pdo = Database::connection();
       $user = new User($pdo);
 
