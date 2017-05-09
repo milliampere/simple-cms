@@ -1,33 +1,27 @@
 <h1 class="text-center">All posts</h1>
 <?php
+include 'classes/User.php';
+include 'classes/Database.php';
 
-//******TODO
-//fixa med classer, formatera html så posterna ser bra ut, koppla tables så man får ut user som skrivit inlägget
-$options = [ 
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES   => false
-        ];
 
-        $pdo = new PDO(
-        "mysql:host=localhost;dbname=simple-cms;charset=utf8",
-        "root",
-        "root", $options);
+$pdo = Database::connection();
 
         try {
         $statement = $pdo->prepare("SELECT * FROM posts");
         $statement->execute();
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-
         
         echo '<div class="posts container">';
         
             foreach ($data as $key) {
+                $user = new User($pdo);
                 $title = $key['title'];
+                $id = $key['userId']; 
                 $content = $key['content'];
                 $date = $key["date"];
                 echo '<div class="col-md-12">';
                 echo "<h2> $title </h2>";
+                echo $user->getName($id);
                 echo "<p> $content </p>"; 
                 echo '<span class="label label-primary">'.$date.'</span><br>';
                 echo '<button class="likePost btn btn-primary btn-xs">Like</button>';
