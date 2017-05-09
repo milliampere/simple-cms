@@ -7,7 +7,7 @@ include 'classes/Database.php';
 $pdo = Database::connection();
 
         try {
-        $statement = $pdo->prepare("SELECT * FROM posts");
+        $statement = $pdo->prepare("SELECT * FROM posts ORDER BY date DESC");
         $statement->execute();
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
         
