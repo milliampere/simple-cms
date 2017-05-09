@@ -14,5 +14,8 @@
 <script src="js/main.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="dist/wysihtml-toolbar.min.js"></script>
+<!-- wysihtml5 parser rules -->
+<script src="parser_rules/advanced.js"></script>
 </body>
 </html>

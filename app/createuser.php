@@ -11,3 +11,4 @@ $password = $_POST['password'];
 
 $signup->createuser($name, $email, $password);
 
+
