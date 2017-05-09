@@ -23,7 +23,7 @@ include 'Database.php';
 
         $stmt->bindParam(':postTitle', $postTitle);
         $stmt->bindParam(':postContent', $postContent);
-        
+
         $postTitle = $_POST['postTitle'];
         $postContent = $_POST['postContent'];
         
@@ -36,7 +36,9 @@ include 'Database.php';
         
     
         $stmt->execute();
-        echo "Post Created";
+        $url='../viewposts.php';
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+        
     }catch(PDOException $e){
     echo "Error: " . $e->getMessage();
     }
