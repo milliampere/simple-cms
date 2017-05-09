@@ -21,7 +21,7 @@ $pdo = Database::connection();
                 $date = $key["date"];
                 echo '<div class="col-md-12">';
                 echo "<h2> $title </h2>";
-                echo $user->getName($id);
+                echo '<p style="font-size:12px;font-style:italic" class="postedName">Posted by: '.$user->getName($id).'</p>';
                 echo "<p> $content </p>"; 
                 echo '<span class="label label-primary">'.$date.'</span><br>';
                 echo '<button class="likePost btn btn-primary btn-xs">Like</button>';
