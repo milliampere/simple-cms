@@ -13,8 +13,9 @@ ul {
 }
 
 // Margin between navbar and content
-body > .navbar {
-    margin-bottom: 2rem; 
+.container-fluid, .container {
+  /* Margin top by navbar height */
+  margin-top: 60px;
 }
 
 .createBlogpost{
