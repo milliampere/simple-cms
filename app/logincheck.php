@@ -1,36 +1,25 @@
 <?php 
 include 'classes/Login.php';
-include 'error.php';
-$login = new Login();
+include 'classes/Database.php';
+$pdo = Database::connection();
+$login = new Login($pdo);
 
 // Input from the user
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-include 'classes/Database.php';
-include 'classes/User.php';
+// If email is correct
+if ($login->verifyEmail($email)){
+	$user = $login->verifyEmail($email);
 
-$pdo = Database::connection();
-$user = new User($pdo);
-
-// Get user from database
-$stmt = $pdo->prepare("SELECT * FROM users WHERE email='$email'");
-$stmt->execute();
-$data = $stmt->fetch();
-
-// If the email doesn't exist
-if(!$row = $data){
-	echo "Fel email";
+	// If password is correct
+	if ($login->verifyPassword($user, $password)){
+		header("Location: userpage.php");
+	}
+	else {
+		header("Location: login.php");
+	}
 }
 else {
-	$id = $data['id'];
-	$hash = $data['password'];
-	$isAdmin = $data['isAdmin'];
-	$login->verify($password, $hash, $email, $id, $isAdmin);
-
-	header("Location: userpage.php");
-
+    header("Location: login.php");
 }
-
-
-?>
