@@ -25,6 +25,7 @@ $pdo = Database::connection();
                 echo "<p> $content </p>"; 
                 echo '<span class="label label-primary">'.$date.'</span><br>';
                 echo '<button class="likePost btn btn-primary btn-xs">Like</button>';
+                echo '<button class="deletePost btn btn-danger btn-xs pull-right">Delete</button>';
                 echo '</div>';
                 echo '<hr>';
         }
@@ -34,3 +35,4 @@ catch(PDOException $e)
     {
     echo "Connection failed: " . $e->getMessage();
     }
+include '../includes/footer.php';

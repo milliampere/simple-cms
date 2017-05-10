@@ -1,0 +1,1 @@
+<!--todo check if admin, then u can delete every post, if not only your own-->
