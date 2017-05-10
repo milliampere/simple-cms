@@ -1,37 +1,34 @@
 <?php
-    include 'classes/Login.php';
-    $login = new Login();
-    Login::logincheck();
-
-    if (!isset($_SESSION['loggedIn'])) { 
-        header('Location: notloggedin.php'); 
-    }
-
+  include 'classes/Verify.php';
+  // This is a secret page. To be included in all admin/user secret pages.
+  Verify::secretPage();
 ?>
 
 <?php 
   include 'includes/header.php';
-  
 ?>
 
+<?php
+  include 'classes/Database.php';
+  $pdo = Database::connection();
+  include 'classes/User.php';
+  $user = new User($pdo);
+  $id = $_SESSION['id'];
+?>
 
 <div class="container-fluid">
   <div class="row">
     <main class="col pt-3">
-      <h3><?php echo "Hej!" ?> </h3>
+      <h3><?php echo "Hej " . $user->getName($id); ?></h3>
 
       <?php
-
-      include 'classes/Database.php';
-      include 'classes/User.php';
-      $pdo = Database::connection();
-      $user = new User($pdo);
-
-      $id = $_SESSION['id'];
-      echo "<br>";
-      echo "Namn: " . $user->getName($id);
+      echo "Email: " . $_SESSION['email'];
       echo "<br>";
       echo "Du har skrivit " . $user->numberOfPosts($id) . " inlägg.";
+      echo "<br><br>";
+      echo "For testing only, to be removed:";
+      echo "<br>";
+      var_dump($_SESSION);
 
       ?>
 
