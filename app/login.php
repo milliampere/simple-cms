@@ -1,9 +1,7 @@
 <?php
-    include 'classes/Login.php';
-    $login = new Login();
-    Login::logincheck();
+  include 'classes/Verify.php';
+  Verify::alreadyLoggedIn();
 ?>
-
 
 <?php 
     include 'includes/header.php'; 
