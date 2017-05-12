@@ -1,5 +1,6 @@
 <?php
-include 'includes/header.php';
+    session_start();
+    include 'includes/header.php';
 ?>
     <h1 class="text-center">Create post</h1>
     <form action="classes/post.php" method="post" class="createBlogpost"><br>
@@ -10,4 +11,7 @@ include 'includes/header.php';
         <input class="btn btn-primary" type="submit" value="Submit " name="submit"/>
     </form>
 
+<?php 
+    include 'includes/footer.php';
+?>
 

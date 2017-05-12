@@ -1,17 +1,20 @@
-<h1 class="text-center">All posts</h1>
 <?php
-include 'classes/User.php';
-include 'classes/Database.php';
+include 'User.php';
+include 'Database.php';
 
 
-$pdo = Database::connection();
+class Posts {
+
+    public function viewAllPosts(){
+
+        $pdo = Database::connection();
 
         try {
-        $statement = $pdo->prepare("SELECT * FROM posts ORDER BY date DESC");
-        $statement->execute();
-        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $statement = $pdo->prepare("SELECT * FROM posts ORDER BY date DESC");
+            $statement->execute();
+            $data = $statement->fetchAll();
         
-        echo '<div class="posts container">';
+            echo '<div class="posts container">';
         
             foreach ($data as $key) {
                 $user = new User($pdo);
@@ -25,14 +28,13 @@ $pdo = Database::connection();
                 echo "<p> $content </p>"; 
                 echo '<span class="label label-primary">'.$date.'</span><br>';
                 echo '<button class="likePost btn btn-primary btn-xs">Like</button>';
-                echo '<button class="deletePost btn btn-danger btn-xs pull-right">Delete</button>';
                 echo '</div>';
                 echo '<hr>';
+            }
+            echo '</div>';
         }
-        echo '</div>';
+        catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
     }
-catch(PDOException $e)
-    {
-    echo "Connection failed: " . $e->getMessage();
-    }
-include '../includes/footer.php';
+}
