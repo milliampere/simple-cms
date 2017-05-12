@@ -11,10 +11,16 @@ class Database
 	    PDO::ATTR_EMULATE_PREPARES   => false
 	  ];
 
-    return new PDO(
+		try {
+			return new PDO(
 	    "mysql:host=localhost;dbname=simple-cms;charset=utf8",
 	    "root",
 	    "root", 
       $options);
+		}
+		catch (PDOException $error) {
+			echo $error->getMessage();
+		}
+
   }
 }
