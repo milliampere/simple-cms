@@ -9,7 +9,7 @@ include 'Database.php';
 
    
 $id = $_POST['postId']; 
-
+echo 'Deleting post......';
     If(isset($_POST['deletepost'])){
         try {
         $stmt = $pdo->prepare("DELETE FROM posts WHERE id='$id'");
