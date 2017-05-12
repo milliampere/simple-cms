@@ -19,7 +19,8 @@ class Posts {
             foreach ($data as $key) {
                 $user = new User($pdo);
                 $title = $key['title'];
-                $id = $key['userId']; 
+                $id = $key['userId'];
+                $postId = $key['id']; 
                 $content = $key['content'];
                 $date = $key["date"];
                 echo '<div class="col-md-12">';
@@ -28,6 +29,10 @@ class Posts {
                 echo "<p> $content </p>"; 
                 echo '<span class="label label-primary">'.$date.'</span><br>';
                 echo '<button class="likePost btn btn-primary btn-xs">Like</button>';
+                echo '<form action="classes/deletepost.php" method="post">';
+                echo '<input type="hidden" name="postId" value="'.$postId.'" />';
+                echo '<input type="submit" value="Delete post" name="deletepost" class="deletePost btn btn-danger btn-xs"></button>';
+                echo '</form>';
                 echo '</div>';
                 echo '<hr>';
             }
