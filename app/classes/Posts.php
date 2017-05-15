@@ -31,6 +31,7 @@ class Posts {
                 echo '<button class="likePost btn btn-primary btn-xs">Like</button>';
                 echo '<form action="classes/deletepost.php" method="post">';
                 echo '<input type="hidden" name="postId" value="'.$postId.'" />';
+                echo '<input type="hidden" name="id" value="'.$id.'" />';
                 echo '<input type="submit" value="Delete post" name="deletepost" class="deletePost btn btn-danger btn-xs"></button>';
                 echo '</form>';
                 echo '</div>';

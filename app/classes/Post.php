@@ -1,6 +1,8 @@
 <?php
-
+include 'User.php';
 include 'Database.php';
+
+session_start();
 // include 'classes/Login.php';
 
     // $login = new Login();
@@ -11,28 +13,24 @@ include 'Database.php';
     // }
 
     $pdo = Database::connection();
-
     
+    $userId = $_SESSION['id'];
 
     If(isset($_POST['submit'])){
         try {
-        $userId = 1;
 
-        $stmt = $pdo->prepare("INSERT INTO posts (title, content, date)
-        VALUES (:postTitle, :postContent, now())");
+        $stmt = $pdo->prepare("INSERT INTO posts (userId, title, content, date)
+        VALUES ($userId, :postTitle, :postContent, now())");
 
         $stmt->bindParam(':postTitle', $postTitle);
         $stmt->bindParam(':postContent', $postContent);
+        
 
         $postTitle = $_POST['postTitle'];
         $postContent = $_POST['postContent'];
-        
-
-        // $stmt->bindParam(':userId', $userId);
        
-
     
-
+        echo 'Creating post....';
         
     
         $stmt->execute();
@@ -44,7 +42,6 @@ include 'Database.php';
     }
     $pdo = null;
     }
-    
 
 
 
