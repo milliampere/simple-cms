@@ -10,7 +10,7 @@ include 'Database.php';
    
 $id = $_POST['postId']; 
 echo 'Deleting post......';
-    If(isset($_POST['deletepost'])){
+    If(isset($_POST['deletepost']) && isset($_SESSION['isAdmin'])){
         try {
         $stmt = $pdo->prepare("DELETE FROM posts WHERE id='$id'");
     
@@ -22,5 +22,12 @@ echo 'Deleting post......';
     echo "Error: " . $e->getMessage();
     }
     $pdo = null;
+    }
+    else{
+        // fixa så det ej står deleting post trots att du inte har permissons
+        $message = "You do not have permissions to delete this post";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        $url='../viewposts.php';
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
     }
     
