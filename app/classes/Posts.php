@@ -23,16 +23,27 @@ class Posts {
                 $postId = $key['id']; 
                 $content = $key['content'];
                 $date = $key["date"];
+                $likes = $key['likes'];
                 echo '<div class="col-md-12">';
                 echo "<h2> $title </h2>";
                 echo '<p style="font-size:12px;font-style:italic" class="postedName">Posted by: '.$user->getName($id).'</p>';
                 echo "<p> $content </p>"; 
                 echo '<span class="label label-primary">'.$date.'</span><br>';
-                echo '<button class="likePost btn btn-primary btn-xs">Like</button>';
+
+                echo '<form action="classes/likes.php" method="post">';
+                echo '<input type="hidden" name="postId" value="'.$postId.'" />';
+                echo '<input type="submit" value="Like" name="likepost" class="likePost btn btn-primary btn-xs"></input><br>';
+                echo '</form>';
+
+                echo '<button class="editPost btn btn-success btn-xs">Edit</button>';
+
                 echo '<form action="classes/deletepost.php" method="post">';
                 echo '<input type="hidden" name="postId" value="'.$postId.'" />';
-                echo '<input type="submit" value="Delete post" name="deletepost" class="deletePost btn btn-danger btn-xs"></button>';
+                echo '<input type="hidden" name="id" value="'.$id.'" />';
+                echo '<input type="submit" value="Delete post" name="deletepost" class="deletePost btn btn-danger btn-xs"></input>';
                 echo '</form>';
+
+                echo '<p>'.$likes.'</p>';
                 echo '</div>';
                 echo '<hr>';
             }
