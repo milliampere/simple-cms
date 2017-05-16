@@ -9,15 +9,15 @@ function validatePassword(){
   }
 }
 
-// password.onchange = validatePassword;
-// confirm_password.onkeyup = validatePassword;
+ password.onchange = validatePassword;
+ confirm_password.onkeyup = validatePassword;
 
-$('.likePost').click(function() {		
-     if ($(this).hasClass('likePost')) {		
-       $(this).html('Remove like').toggleClass('dislikePost').removeClass('likePost');		
-   }else if($(this).hasClass('dislikePost')){		
-       $(this).html('Like').toggleClass('likePost').removeClass('dislikePost');		
-   }		
+// $('.likePost').click(function() {		
+//      if ($(this).hasClass('likePost')) {		
+//        $(this).html('Remove like').toggleClass('dislikePost').removeClass('likePost');		
+//    }else if($(this).hasClass('dislikePost')){		
+//        $(this).html('Like').toggleClass('likePost').removeClass('dislikePost');		
+//    }		
 //   $.ajax({		
 //    type: 'POST',		
 //    url: "classes/Likes.php",		
@@ -26,4 +26,4 @@ $('.likePost').click(function() {
 //  //   alert( "Data Saved: " + msg );		
    		
 //  });			
-     });
+     //});
