@@ -38,7 +38,11 @@ class Posts {
                 }
 
                 if(isset($_SESSION['loggedIn']) && isset($_SESSION['isAdmin']) || $id == $_SESSION['id'] ){
-                    echo '<button class="editPost btn btn-success btn-xs">Edit</button>';
+                    echo '<form action="editpost.php" method="post">';
+                    echo '<input type="hidden" name="postId" value="'.$postId.'" />';
+                    echo '<input type="hidden" name="id" value="'.$id.'" />';
+                    echo '<input type="submit" value="Edit post" name="editpost" class="editPost btn btn-success btn-xs"></input>';
+                    echo '</form>';
 
                     echo '<form action="classes/deletepost.php" method="post">';
                     echo '<input type="hidden" name="postId" value="'.$postId.'" />';

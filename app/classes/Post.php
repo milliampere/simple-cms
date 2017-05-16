@@ -3,14 +3,6 @@ include 'User.php';
 include 'Database.php';
 
 session_start();
-// include 'classes/Login.php';
-
-    // $login = new Login();
-    // Login::logincheck();
-
-    // if (!isset($_SESSION['loggedIn'])) { 
-    //     header('Location: notloggedin.php'); 
-    // }
 
     $pdo = Database::connection();
     
@@ -43,5 +35,30 @@ session_start();
     $pdo = null;
     }
 
+
+    If(isset($_POST['edit'])){
+        try {
+
+        $newTitle = $_POST['newTitle'];
+        $newContent = $_POST['newContent'];
+        $postId = $_POST['postId'];
+
+        $stmt = $pdo->prepare("UPDATE posts SET title = :newTitle, content = :newContent WHERE id = :postId");
+
+        $stmt->bindParam(':newTitle', $newTitle);
+        $stmt->bindParam(':newContent', $newContent);
+        $stmt->bindParam(':postId', $postId);
+        
+        echo 'Updating post....';
+        
+        $stmt->execute();
+        $url='../viewposts.php';
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+        
+    }catch(PDOException $e){
+    echo "Error: " . $e->getMessage();
+    }
+    $pdo = null;
+    }
 
 
