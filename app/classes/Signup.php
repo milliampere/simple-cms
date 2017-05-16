@@ -18,9 +18,9 @@ class Signup
       $email_exists = $stmt->fetch();
 
       if ($email_exists == true) {
-        echo "Sorry, the email is already taken.";
+        echo "That email does already exist, please choose another one.";
         $url='../app/register.php';
-        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="5; '.$url.'">';
         // Here we have to add the error message to the "register page" not as an echo.
       } 
       else {
