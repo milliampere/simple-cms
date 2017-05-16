@@ -18,7 +18,7 @@ gulp.task('default', ['sass', 'babel'], () => {
     gulp.watch("**/*.php").on('change', browserSync.reload);    
 
     gulp.watch('./src/scss/**/*.scss', ['sass']);               
-    gulp.watch('./src/js/*.js', ['babel']);                     
+    gulp.watch('./src/js/**/*.js', ['babel']);                     
 });
 
 
@@ -38,10 +38,10 @@ gulp.task('sass', () => {
 
 
 gulp.task('babel', () => {
-    return gulp.src('./src/js/*.js')            
+    return gulp.src('./src/js/**/*.js')            
         .pipe(babel({                           
             presets: ['env']
         }))
-        .pipe(gulp.dest('app/js'));            
+        .pipe(gulp.dest('./app/js'));            
 });
 
