@@ -1,4 +1,5 @@
 <?php
+session_start();
 //change button to unlike when liked and add functionality for that
 include 'Database.php';
 
@@ -6,12 +7,13 @@ include 'Database.php';
 $pdo = Database::connection();
 
 $postId = $_POST['postId']; 
-
+$userId = $_SESSION['id'];
 
 If(isset($_POST['likepost'])){
         try {
-        $statement = $pdo->prepare("UPDATE posts SET likes = likes + 1 WHERE id = $postId");
-        $statement->execute();
+        $stmt = $pdo->prepare("INSERT INTO likes (userId, postId) VALUES ($userId, $postId)");
+        $stmt->execute();
+
         }
         
 catch(PDOException $e)
