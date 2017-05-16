@@ -1,15 +1,11 @@
 <?php
     session_start();
-    include 'includes/header.php';
+    
     include 'classes/Verify.php';
     include 'classes/Database.php';
   
     // This is a secret page. To be included in all admin/user secret pages.
     Verify::secretPage();
-
-    if(!isset($_POST['postId'])){
-        header('Location: notloggedin.php'); 
-    }
     
     $postId = $_POST['postId']; 
 
@@ -19,6 +15,10 @@
     $stmt->execute();
     $post = $stmt->fetch();
 
+?>
+
+<?php
+    include 'includes/header.php';
 ?>
 <div class="container">
     <div class="row">

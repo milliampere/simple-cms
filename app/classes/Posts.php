@@ -37,7 +37,7 @@ class Posts {
                     echo '</form>';
                 }
 
-                if(isset($_SESSION['loggedIn']) && isset($_SESSION['isAdmin']) || $id == $_SESSION['id'] ){
+                if(isset($_SESSION['isAdmin']) || (isset($_SESSION['id']) && $id == $_SESSION['id']) ){
                     echo '<form action="editpost.php" method="post">';
                     echo '<input type="hidden" name="postId" value="'.$postId.'" />';
                     echo '<input type="hidden" name="id" value="'.$id.'" />';
