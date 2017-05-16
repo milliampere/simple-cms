@@ -7,11 +7,14 @@
         <label>Title</label><br>
         <input type="text" name="postTitle" required="required"/><br><br>
         <label>Content</label>
-        <textarea name="postContent" id="wysihtml-textarea" rows="10" class="form-control" required="required"></textarea><br>
+        <textarea name="postContent" rows="10" class="form-control" required="required"></textarea><br>
         <input class="btn btn-primary" type="submit" value="Submit " name="submit"/>
     </form>
+    
 
 <?php 
     include 'includes/footer.php';
+    
 ?>
+
 
