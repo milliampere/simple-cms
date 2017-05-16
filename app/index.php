@@ -1,11 +1,20 @@
 <?php
     session_start();
-    include 'error.php';
+    //include 'classes/Verify.php';
 ?>
 
 <?php 
-include 'includes/header.php';
+    include 'includes/header.php';
+?>
 
-var_dump($_SESSION);
+    <div class="container">
+        <div class="row">
+            <?php
+                //Verify::isAdmin();            
+            ?>
+        </div>
+    </div>
 
-include 'includes/footer.php';
+<?php
+    include 'includes/footer.php';
+?>
