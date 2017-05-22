@@ -36,6 +36,12 @@ class Posts {
                     echo '<input type="submit" value="Like" name="likepost" class="likePost btn btn-primary btn-xs"></input><br>';
                     echo '</form>';
                 }
+                 if(isset($_SESSION['loggedIn'])) {
+                    echo '<form action="classes/likes.php" method="post">';
+                    echo '<input type="hidden" name="postId" value="'.$postId.'" />';
+                    echo '<input type="submit" value="Dislike" name="deletepost" class="delepost btn btn-danger btn-xs"></input><br>';
+                    echo '</form>';
+                }
 
                 if(isset($_SESSION['isAdmin']) || (isset($_SESSION['id']) && $id == $_SESSION['id']) ){
                     echo '<form action="editpost.php" method="post">';
