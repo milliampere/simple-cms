@@ -6,13 +6,18 @@
 <?php 
     include 'includes/header.php';
 ?>
+
 <style>
 img {
 	width: 100%;
-	height: 700px;
+	height: 100%;
 }
 </style>
+
 <img src="../src/img/code.jpg" alt="background">
+
+    
+
     <!--<div class="container">
         <div class="row">
             <?php
