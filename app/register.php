@@ -2,10 +2,11 @@
   include 'includes/header.php';  
 ?>
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-6">
-            <h3>Sign up</h3>
+        <div class="col-12">
+            <h1>Sign up</h1>
+            <p>Fill in the form to become a member and start creating posts.</p>
             <form class="form-horizontal" action="createuser.php" method="POST">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email">Name:</label>
@@ -38,7 +39,7 @@
             </div>
             </form>
         </div>
-        <div class="col-4"></div>
+        
     </div>
 </div>
 

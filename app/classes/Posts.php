@@ -17,7 +17,7 @@ class Posts {
             $statement->execute();
             $data = $statement->fetchAll();
         
-            echo '<div class="posts container">';
+            echo '<div class="container posts"><div class="row">';
         
             foreach ($data as $key) {
 
@@ -77,7 +77,7 @@ class Posts {
                 echo '</div>';
                 echo '<hr>';
             }
-            echo '</div>';
+            echo '</div></div>';
         }
         catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
