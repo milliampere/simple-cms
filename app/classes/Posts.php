@@ -31,15 +31,17 @@ class Posts {
                 echo '<span class="label label-primary">'.$date.'</span><br>';
 
                 if(isset($_SESSION['loggedIn'])) {
-                    echo '<form action="classes/likes.php" method="post">';
+                    echo '<iframe name="likeframe" style="display:none;"></iframe>';
+                    echo '<form action="classes/likes.php" method="post" target="likeframe">';
                     echo '<input type="hidden" name="postId" value="'.$postId.'" />';
                     echo '<input type="submit" value="Like" name="likepost" class="likePost btn btn-primary btn-xs"></input><br>';
                     echo '</form>';
                 }
                  if(isset($_SESSION['loggedIn'])) {
-                    echo '<form action="classes/deletelike.php" method="post">';
+                    echo '<iframe name="deletelike" style="display:none;"></iframe>';
+                    echo '<form action="classes/deletelike.php" method="post" target="deletelike">';
                     echo '<input type="hidden" name="postId" value="'.$postId.'" />';
-                    echo '<input type="submit" value="Dislike" name="deletepost" class="delepost btn btn-danger btn-xs"></input><br>';
+                    echo '<input type="submit" value="Dislike" name="deletelike" class="delepost btn btn-danger btn-xs"></input><br>';
                     echo '</form>';
                 }
 
@@ -49,7 +51,7 @@ class Posts {
                     echo '<input type="hidden" name="id" value="'.$id.'" />';
                     echo '<input type="submit" value="Edit post" name="editpost" class="editPost btn btn-success btn-xs"></input>';
                     echo '</form>';
-
+                    
                     echo '<form action="classes/deletepost.php" method="post">';
                     echo '<input type="hidden" name="postId" value="'.$postId.'" />';
                     echo '<input type="hidden" name="id" value="'.$id.'" />';

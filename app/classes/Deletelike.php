@@ -14,12 +14,12 @@ $stmt->execute();
 
 if($stmt->rowCount() > 0)
 {
-    If(isset($_POST['deletepost'])){
+    If(isset($_POST['deletelike'])){
         try {
         $stmt = $pdo->prepare("DELETE FROM likes WHERE postId='$postId'");
         $stmt->execute();
-        $url='../viewposts.php';
-        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+        // $url='../viewposts.php';
+        // echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
         }
         
 catch(PDOException $e)
@@ -32,8 +32,8 @@ catch(PDOException $e)
 }else{
     $message = "You have to like before you can dislike";
     echo "<script type='text/javascript'>alert('$message');</script>";
-    $url='../viewposts.php';
-    echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+    // $url='../viewposts.php';
+    // echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
 }
 
 
