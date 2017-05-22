@@ -3,12 +3,15 @@ include 'User.php';
 include 'Database.php';
 
 
+
 class Posts {
 
     public function viewAllPosts(){
-
+         
+        
+    
         $pdo = Database::connection();
-
+        
         try {
             $statement = $pdo->prepare("SELECT * FROM posts ORDER BY date DESC");
             $statement->execute();
@@ -17,13 +20,23 @@ class Posts {
             echo '<div class="posts container">';
         
             foreach ($data as $key) {
+
                 $user = new User($pdo);
                 $title = $key['title'];
                 $id = $key['userId'];
                 $postId = $key['id']; 
                 $content = $key['content'];
                 $date = $key["date"];
-                //$likes = $key['likes'];
+
+                try {
+                $stmt2 = $pdo->prepare("SELECT count(*) from likes where postId = '$postId'");
+                $stmt2->execute();
+                $likes = $stmt2->fetch(PDO::FETCH_ASSOC);
+                
+                }catch(PDOException $e){
+                echo "Error: " . $e->getMessage();
+                }
+
                 echo '<div class="col-md-12">';
                 echo "<h2> $title </h2>";
                 echo '<p style="font-size:12px;font-style:italic" class="postedName">Posted by: '.$user->getName($id).'</p>';
@@ -57,11 +70,10 @@ class Posts {
                     echo '<input type="hidden" name="id" value="'.$id.'" />';
                     echo '<input type="submit" value="Edit post" name="editpost" class="editPost btn btn-success btn-xs"></input>';
                     echo '</form>';
-                    
-                    
+                        
                 }
 
-                //echo '<p>'.$likes.'</p>';
+                echo '<p>'.$likes['count(*)'].'</p>';
                 echo '</div>';
                 echo '<hr>';
             }
