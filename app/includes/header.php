@@ -20,11 +20,5 @@
 	Navigation::displayNavbar();
 ?>
 
-<style>
-img {
-	width: 100%;
-	height: 600px;
-}
-</style>
-<img src="../src/img/code.jpg" alt="background">
+
 </body>
