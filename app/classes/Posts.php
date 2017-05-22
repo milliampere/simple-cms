@@ -37,7 +37,7 @@ class Posts {
                     echo '</form>';
                 }
                  if(isset($_SESSION['loggedIn'])) {
-                    echo '<form action="classes/likes.php" method="post">';
+                    echo '<form action="classes/deletelike.php" method="post">';
                     echo '<input type="hidden" name="postId" value="'.$postId.'" />';
                     echo '<input type="submit" value="Dislike" name="deletepost" class="delepost btn btn-danger btn-xs"></input><br>';
                     echo '</form>';
