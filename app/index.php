@@ -7,13 +7,14 @@
     include 'includes/header.php';
 ?>
 
-    <div class="container">
+    <!--<div class="container">
         <div class="row">
             <?php
                 //Verify::isAdmin();            
             ?>
+            
         </div>
-    </div>
+    </div>-->
 
 <?php
     include 'includes/footer.php';

@@ -10,10 +10,21 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.min.css">
   <link rel="icon" href="images/favicon.png">
+	
 </head>
+
 <body>
 
 <?php 
 	include 'classes/Navigation.php';
 	Navigation::displayNavbar();
 ?>
+
+<style>
+img {
+	width: 100%;
+	height: 600px;
+}
+</style>
+<img src="../src/img/code.jpg" alt="background">
+</body>
