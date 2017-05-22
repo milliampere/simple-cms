@@ -32,31 +32,33 @@ class Posts {
 
                 if(isset($_SESSION['loggedIn'])) {
                     echo '<iframe name="likeframe" style="display:none;"></iframe>';
-                    echo '<form action="classes/likes.php" method="post" target="likeframe">';
+                    echo '<form action="classes/likes.php" class="likepost" method="post" target="likeframe">';
                     echo '<input type="hidden" name="postId" value="'.$postId.'" />';
                     echo '<input type="submit" value="Like" name="likepost" class="likePost btn btn-primary btn-xs"></input><br>';
                     echo '</form>';
                 }
                  if(isset($_SESSION['loggedIn'])) {
                     echo '<iframe name="deletelike" style="display:none;"></iframe>';
-                    echo '<form action="classes/deletelike.php" method="post" target="deletelike">';
+                    echo '<form action="classes/deletelike.php" class="deletelike" method="post" target="deletelike">';
                     echo '<input type="hidden" name="postId" value="'.$postId.'" />';
                     echo '<input type="submit" value="Dislike" name="deletelike" class="delepost btn btn-danger btn-xs"></input><br>';
                     echo '</form>';
                 }
 
                 if(isset($_SESSION['isAdmin']) || (isset($_SESSION['id']) && $id == $_SESSION['id']) ){
-                    echo '<form action="editpost.php" method="post">';
+                    echo '<form action="classes/deletepost.php" class="deletepost" method="post">';
+                    echo '<input type="hidden" name="postId" value="'.$postId.'" />';
+                    echo '<input type="hidden" name="id" value="'.$id.'" />';
+                    echo '<input type="submit" value="Delete post" name="deletepost" class="deletePost btn btn-danger btn-xs"></input>';
+                    echo '</form>';
+
+                    echo '<form action="editpost.php" class="editpost" method="post">';
                     echo '<input type="hidden" name="postId" value="'.$postId.'" />';
                     echo '<input type="hidden" name="id" value="'.$id.'" />';
                     echo '<input type="submit" value="Edit post" name="editpost" class="editPost btn btn-success btn-xs"></input>';
                     echo '</form>';
                     
-                    echo '<form action="classes/deletepost.php" method="post">';
-                    echo '<input type="hidden" name="postId" value="'.$postId.'" />';
-                    echo '<input type="hidden" name="id" value="'.$id.'" />';
-                    echo '<input type="submit" value="Delete post" name="deletepost" class="deletePost btn btn-danger btn-xs"></input>';
-                    echo '</form>';
+                    
                 }
 
                 //echo '<p>'.$likes.'</p>';
