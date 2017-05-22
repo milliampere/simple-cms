@@ -10,10 +10,15 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.min.css">
   <link rel="icon" href="images/favicon.png">
+	
 </head>
+
 <body>
 
 <?php 
 	include 'classes/Navigation.php';
 	Navigation::displayNavbar();
 ?>
+
+
+</body>

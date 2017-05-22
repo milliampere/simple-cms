@@ -6,14 +6,21 @@
 <?php 
     include 'includes/header.php';
 ?>
-
-    <div class="container">
+<style>
+img {
+	width: 100%;
+	height: 700px;
+}
+</style>
+<img src="../src/img/code.jpg" alt="background">
+    <!--<div class="container">
         <div class="row">
             <?php
                 //Verify::isAdmin();            
             ?>
+            
         </div>
-    </div>
+    </div>-->
 
 <?php
     include 'includes/footer.php';
