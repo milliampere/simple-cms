@@ -15,9 +15,6 @@
       <li class="nav-item">
         <a class="nav-link" href="viewposts.php">View all posts</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="userpage.php">Settings</a>
-      </li>
     </ul>
     <a class="nav-link" href="logout.php">Log out</a>
   </div>
