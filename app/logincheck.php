@@ -14,7 +14,10 @@ if ($login->verifyEmail($email)){
 
 	// If password is correct
 	if ($login->verifyPassword($user, $password)){
-		header("Location: userpage.php");
+		$message = "Welcome!";
+		echo "<script type='text/javascript'>alert('$message');</script>";
+		$url='../app/index.php';
+		echo '<META HTTP-EQUIV=REFRESH CONTENT="2; '.$url.'">';
 	}
 	else {
 		$message = "Wrong password or email";
