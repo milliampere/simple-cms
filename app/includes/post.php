@@ -28,12 +28,12 @@
         <input type="hidden" name="userId" value="<?php echo $userId; ?>" />
         <input type="button" name="likeButton" value="Like" class="likeButton likePost btn btn-primary btn-xs" id="likeButton" data-postid="<?php echo $postId; ?>" data-userid="<?php echo $userId; ?>" />
         </form>
-      <?php endif; ?>
         <form>
         <input type="hidden" name="postId" value="<?php echo $postId; ?>" />
         <input type="hidden" name="likeCount" value="LikeCount" class="likeCount" id="like-<?php echo $postId; ?>" data-postid="<?php echo $postId; ?>" data-userid="<?php echo $userId; ?>" />
         <span class="likesCount"></span>
         </form>
+      <?php endif; ?>
     </div>
 
     <div>
