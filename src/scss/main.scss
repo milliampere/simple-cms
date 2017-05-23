@@ -43,3 +43,16 @@ ul {
     margin: 5px;
     // float:right;
 }
+
+
+
+
+  .buttons {
+  display: flex;
+  justify-content: space-between;
+  }
+
+  .likeButton, .dislikeButton, .editButton, .deleteButton  {
+    display: inline-block;
+    margin: 5px 5px 5px 0;
+}
