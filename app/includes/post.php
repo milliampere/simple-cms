@@ -1,23 +1,13 @@
-<?php                
-  $user = new User($pdo);
+<?php  
+  $pdo = Database::connection();   
+  $user = new User($pdo);    
   $title = $key['title'];
   $id = $key['userId'];
   $postId = $key['id']; 
   $content = $key['content'];
   $date = $key["date"];
+  $userId = $_SESSION["id"];
 ?>
-
-<style>
-  .buttons {
-  display: flex;
-  justify-content: space-between;
-  }
-
-  .likeButton, .dislikeButton, .editButton, .deleteButton  {
-    display: inline-block;
-    margin: 5px 5px 5px 0;
-}
-</style>
 
 <div class="col-md-12">
   <h2> <?php echo $title ?> </h2>
@@ -28,17 +18,18 @@
   <div class="buttons">
   
     <div>
+
       <?php if(isset($_SESSION['loggedIn'])): ?>
-          <form action="classes/likes.php" method="post" class="likeButton">
-          <input type="hidden" name="postId" value="<?php echo $postId?>" />
-          <input type="submit" value="Like" name="likepost" class="likePost btn btn-primary btn-xs"></input><br>
-          </form>
-      <?php endif; ?>
-      <?php if(isset($_SESSION['loggedIn'])): ?>
-          <form action="classes/likes.php" method="post" class="dislikeButton">
-          <input type="hidden" name="postId" value="<?php echo $postId?>" />
-          <input type="submit" value="Dislike" name="likepost" class="dislikePost btn btn-primary btn-xs"></input><br>
-          </form>
+        <form>
+        <input type="hidden" name="postId" value="<?php echo $postId; ?>" />
+        <input type="hidden" name="userId" value="<?php echo $userId; ?>" />
+        <input type="button" name="likeButton" value="Like" class="likeButton likePost btn btn-primary btn-xs" id="likeButton" data-postid="<?php echo $postId; ?>" data-userid="<?php echo $userId; ?>" />
+        </form>
+        <form>
+        <input type="hidden" name="postId" value="<?php echo $postId; ?>" />
+        <input type="hidden" name="likeCount" value="LikeCount" class="likeCount" id="like-<?php echo $postId; ?>" data-postid="<?php echo $postId; ?>" />
+        <span class="likesCount"></span>
+        </form>
       <?php endif; ?>
     </div>
 
