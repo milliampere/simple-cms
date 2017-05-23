@@ -6,16 +6,9 @@
 <?php 
     include 'includes/header.php';
 ?>
+<div class="container-fluid index">
 
-<style>
-img {
-	width: 100%;
-	height: 100%;
-    margin-bottom: -10em;
-}
-</style>
 
-<img src="../app/images/workplace.jpg" alt="background">
 
     
 
@@ -28,6 +21,5 @@ img {
         </div>
     </div>-->
 
-<!--<?php
-    include 'includes/footer.php';
-?>-->
+
+</div>
