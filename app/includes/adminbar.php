@@ -13,7 +13,7 @@
         <a class="nav-link" href="createpost.php">Create post</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="_viewposts.php">View all posts</a>
+        <a class="nav-link" href="viewposts.php">View all posts</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="userpage.php">Settings</a>
