@@ -1,7 +1,7 @@
 <?php
   session_start();
   include 'includes/header.php';
-  include 'classes/_Posts.php';
+  include 'classes/Posts.php';
   include 'classes/User.php';
 ?>
 
@@ -11,7 +11,7 @@
     <main class="col pt-3">
       <div id="content">
         <?php
-          $posts = new _Posts();
+          $posts = new Posts();
           $data = $posts->viewPosts();
 
           foreach ($data as $key) {
