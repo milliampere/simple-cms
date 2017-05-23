@@ -31,6 +31,7 @@
 
 $(document).ready(function() {
 
+
   $('.likeButton').click(function(e) {
 
     $this = $(this);
@@ -54,6 +55,25 @@ $(document).ready(function() {
   }); 
 
 
+  // Check if liked
+  function checkIfLiked(){
+    $(function() {
+
+        $('.likeButton').each(function( index ) {
+          var $this = $(this);
+          $postId = $this.attr('data-postid');
+          $userId = $this.attr('data-userid');
+
+          $.post("like_check.php", { postid: $postId, userid: $userId }, function(data){
+          $this.val(data);
+          //$this.next().text(data);
+          });
+
+        });
+      });
+  }
+
+checkIfLiked();
 
   // Show number of likes
   function countLikes(){
