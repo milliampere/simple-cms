@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   if(document.getElementById('moreButton')){
     document.getElementById('moreButton').addEventListener('click', function(){
       Pagination.loadMore();
+      console.log("Button clicked");
     })
   }
 });
@@ -29,9 +30,9 @@ var counter = 1;
       .then(text => {return text;})
       .catch(error => {console.log(error);})
       .then(data => {
-        if(data == '<div class="posts container"></div>'){
+        if(data == ''){
           document.getElementById('moreButton').className = "btn btn-primary btn-block disabled";
-          document.getElementById('moreButton').innerHTML = "No more posts to load";
+          document.getElementById('moreButton').innerHTML = "Sorry, no more posts to load";
         }
         console.log(data);
         var content = document.getElementById('content');
@@ -45,11 +46,5 @@ var counter = 1;
 		loadMore: loadMore
 	}; // end of return
 })(); // end of Model
-
-
-
-
-
-
 
 
