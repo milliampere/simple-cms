@@ -1,4 +1,5 @@
 <?php
+session_start();
   include 'classes/Verify.php';
   // This is a secret page. To be included in all admin/user secret pages.
   Verify::secretPage();
@@ -26,9 +27,9 @@
       echo "<br>";
       echo "Du har skrivit " . $user->numberOfPosts($id) . " inlägg.";
       echo "<br><br>";
-      echo "For testing only, to be removed:";
-      echo "<br>";
-      var_dump($_SESSION);
+      // echo "For testing only, to be removed:";
+      // echo "<br>";
+      // var_dump($_SESSION);
 
       ?>
 

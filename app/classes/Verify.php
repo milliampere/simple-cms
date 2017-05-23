@@ -10,7 +10,7 @@ class Verify {
 // For logged in pages only, like settings  
 public static function secretPage(){
   if (!isset($_SESSION['loggedIn'])) { 
-      header('Location: notloggedin.php'); 
+      //header('Location: notloggedin.php'); 
   }
 }
 

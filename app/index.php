@@ -11,6 +11,7 @@
 img {
 	width: 100%;
 	height: 100%;
+    margin-bottom: -10em;
 }
 </style>
 
@@ -27,6 +28,6 @@ img {
         </div>
     </div>-->
 
-<?php
+<!--<?php
     include 'includes/footer.php';
-?>
+?>-->
