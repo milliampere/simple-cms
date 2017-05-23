@@ -16,7 +16,7 @@ if($stmt->rowCount() > 0)
 {
     If(isset($_POST['deletelike'])){
         try {
-        $stmt = $pdo->prepare("DELETE FROM likes WHERE postId='$postId'");
+        $stmt = $pdo->prepare("DELETE FROM likes WHERE postId='$postId' AND userId='$userId'");
         $stmt->execute();
         // $url='../viewposts.php';
         // echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
