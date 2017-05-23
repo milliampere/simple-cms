@@ -31,7 +31,7 @@
       <?php endif; ?>
         <form>
         <input type="hidden" name="postId" value="<?php echo $postId; ?>" />
-        <input type="hidden" name="likeCount" value="LikeCount" class="likeCount" id="like-<?php echo $postId; ?>" data-postid="<?php echo $postId; ?>" />
+        <input type="hidden" name="likeCount" value="LikeCount" class="likeCount" id="like-<?php echo $postId; ?>" data-postid="<?php echo $postId; ?>" data-userid="<?php echo $userId; ?>" />
         <span class="likesCount"></span>
         </form>
     </div>

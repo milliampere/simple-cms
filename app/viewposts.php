@@ -38,7 +38,7 @@ $(document).ready(function() {
     $postId = $this.attr('data-postid');
     $userId = $this.attr('data-userid');
     
-    $.post("like_user.php", { postid: $postId, userid: $userId }, function(data){
+    $.post("like_execute.php", { postid: $postId, userid: $userId }, function(data){
 
       //Change to like/dislike
       if ($this.val() == "Like") {
@@ -82,9 +82,9 @@ checkIfLiked();
         $('.likeCount').each(function( index ) {
           var $this = $(this);
           $postId = $this.attr('data-postid');
-          $likeId = $this.attr('id');
+          $likeId = $this.attr('data-userid');
 
-          $.post("like_count.php", { postid: $postId, likeid: $likeId }, function(data){
+          $.post("like_count.php", { postid: $postId, userid: $userId }, function(data){
           $this.val(data);
           $this.next().text(data);
           });
