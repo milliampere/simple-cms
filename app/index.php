@@ -15,7 +15,7 @@ img {
 }
 </style>
 
-<img src="../src/img/code.jpg" alt="background">
+<img src="../app/images/workplace.jpg" alt="background">
 
     
 
