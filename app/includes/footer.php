@@ -1,8 +1,3 @@
-<footer class="footer">
-  <div class="container-fluid">
-    <span class="text-muted">© Simple-CMS 2017</span>
-  </div>
-</footer>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
