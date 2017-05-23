@@ -25,12 +25,16 @@
         <main class="col pt-3">
             <h1 class="text-center">Edit post</h1>
             <form action="classes/post.php" method="post" class="editBlogpost"><br>
-                <label>Title</label><br>
-                <input type="text" name="newTitle" required="required" value="<?php echo $post['title']; ?>"/><br><br>
-                <label>Content</label>
-                <textarea name="newContent" rows="10" class="form-control" required="required"><?php echo $post['content']; ?></textarea><br>
-                <input type="hidden" name="postId" value="<?php echo $postId; ?>" />
-                <input class="btn btn-primary" type="submit" value="Edit " name="edit"/>
+                <div class="form-group">
+                    <label>Title</label><br>
+                    <input type="text" name="newTitle" class="form-control" required="required" value="<?php echo $post['title']; ?>"/><br>
+                </div>
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea name="newContent" rows="10" class="form-control" required="required"><?php echo $post['content']; ?></textarea><br>
+                    <input type="hidden" name="postId" value="<?php echo $postId; ?>" />
+                </div>
+                <input class="btn btn-primary" type="submit" value="Submit " name="edit"/>
             </form>
         </main>
     </div>
