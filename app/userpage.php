@@ -16,8 +16,9 @@ session_start();
   $user = new User($pdo);
   $id = $_SESSION['id'];
 ?>
-
+<img src="../src/img/workplace.jpg" alt="background2">
 <div class="container-fluid">
+  
   <div class="row">
     <main class="col pt-3">
       <h3><?php echo "Hej " . $user->getName($id); ?></h3>
@@ -35,10 +36,12 @@ session_start();
 
 
     </main>
+    
   </div> <!--end of row-->
+  
 </div> <!-- end of container -->
 
 
-<?php 
+<!--<?php 
     include 'includes/footer.php';
-?>
+?>-->
