@@ -16,9 +16,8 @@ session_start();
   $user = new User($pdo);
   $id = $_SESSION['id'];
 ?>
-<img src="../src/img/workplace.jpg" alt="background2">
-<div class="container-fluid">
-  
+
+<div class="container-fluid userpage">
   <div class="row">
     <main class="col pt-3">
       <h3><?php echo "Hej " . $user->getName($id); ?></h3>
@@ -28,12 +27,7 @@ session_start();
       echo "<br>";
       echo "Du har skrivit " . $user->numberOfPosts($id) . " inlägg.";
       echo "<br><br>";
-      // echo "For testing only, to be removed:";
-      // echo "<br>";
-      // var_dump($_SESSION);
-
       ?>
-
 
     </main>
     
@@ -42,6 +36,6 @@ session_start();
 </div> <!-- end of container -->
 
 
-<!--<?php 
+<?php 
     include 'includes/footer.php';
-?>-->
+?>

@@ -12,10 +12,18 @@ ul {
     
 }
 
+.container {
+  width: auto;
+  max-width: 680px;
+}
+
 // Margin between navbar and content
-.container-fluid, .container {
+body { 
   /* Margin top by navbar height */
-  margin-top: 60px;
+  margin-top: 56px;
+}
+.container, .container-fluid { 
+  padding: 30px 40px 0 40px;
 }
 
 .createBlogpost{
@@ -58,10 +66,11 @@ ul {
 }
 
 
-img {
-	width: 100%;
-	height: 100%;
-    margin-bottom: -10em;
-}
 
-
+.userpage {
+    background-image: url("../images/workplace.jpg");
+    background-color: #e0c5c4;
+    height: calc(100vh - 116px);
+    background-size: cover;
+    
+} 
