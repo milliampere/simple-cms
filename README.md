@@ -10,7 +10,7 @@ Gustav Sundström, Camilla Tranberg, Peter Sandqvist
 #### Bootstrap
 #### Gulp
 #### Sass
-#### Trello
+#### [Trello](https://trello.com/b/M0Gw2XCT/planering)
 
 ### TODO for improvements
 #### Add pictures to blogposts
