@@ -37,13 +37,15 @@
     </div>
 
     <div>
-      <?php if(isset($_SESSION['isAdmin']) || (isset($_SESSION['id']) && $id == $_SESSION['id']) ): ?>
+      <?php if((isset($_SESSION['id']) && $id == $_SESSION['id']) ): ?>
         <form action="editpost.php" method="post" class="editButton">
         <input type="hidden" name="postId" value="<?php echo $postId?>" />
         <input type="hidden" name="id" value="<?php echo $id ?>" />
         <input type="submit" value="Edit post" name="editpost" class="editPost btn btn-success btn-xs"></input>
         </form>
+      <?php endif; ?>
 
+      <?php if(isset($_SESSION['isAdmin']) || (isset($_SESSION['id']) && $id == $_SESSION['id']) ): ?>
         <form action="classes/deletepost.php" method="post" class="deleteButton">
         <input type="hidden" name="postId" value="<?php echo $postId?>" />
         <input type="hidden" name="id" value="<?php echo $id ?>" />

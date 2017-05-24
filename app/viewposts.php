@@ -19,9 +19,6 @@
           }
         ?>
       </div>
-      <div>
-        <!--<button type="button" class="btn btn-primary btn-block active" id="moreButton" name="moreButton">Load more posts</button>   
-  -->    </div>
     </main>
   </div>
 </div>
@@ -29,73 +26,7 @@
 
 <script>
 
-$(document).ready(function() {
 
-
-  $('.likeButton').click(function(e) {
-
-    $this = $(this);
-    $postId = $this.attr('data-postid');
-    $userId = $this.attr('data-userid');
-    
-    $.post("like_execute.php", { postid: $postId, userid: $userId }, function(data){
-
-      //Change to like/dislike
-      if ($this.val() == "Like") {
-        $this.val('Dislike');
-      }
-      else {
-          $this.val('Like');
-      }
-      return false;
-
-    });
-    countLikes();
-    
-  }); 
-
-
-  // Check if liked
-  function checkIfLiked(){
-    $(function() {
-
-        $('.likeButton').each(function( index ) {
-          var $this = $(this);
-          $postId = $this.attr('data-postid');
-          $userId = $this.attr('data-userid');
-
-          $.post("like_check.php", { postid: $postId, userid: $userId }, function(data){
-          $this.val(data);
-          //$this.next().text(data);
-          });
-
-        });
-      });
-  }
-
-checkIfLiked();
-
-  // Show number of likes
-  function countLikes(){
-    $(function() {
-
-        $('.likeCount').each(function( index ) {
-          var $this = $(this);
-          $postId = $this.attr('data-postid');
-          $likeId = $this.attr('data-userid');
-
-          $.post("like_count.php", { postid: $postId, userid: $userId }, function(data){
-          $this.val(data);
-          $this.next().text(data);
-          });
-
-        });
-      });
-  }
-
-countLikes();
-
-}); // $(document).ready
 
 
 

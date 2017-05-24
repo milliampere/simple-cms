@@ -16,7 +16,7 @@ $postId = $_POST["postid"];
 
       // Change the button text depending on if the user has liked the post or not
       if($like == true){        
-        echo "Unlike";
+        echo "Dislike";
       }
       else {
         echo "Like";
