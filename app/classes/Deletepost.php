@@ -1,6 +1,3 @@
-<!--
-prevent page from reloading if user cannot delete
--->
 <?php
 
 include 'Database.php';
